@@ -6,6 +6,8 @@
 # 某一level 出現 1-250次 group 成一組
 # 250-499 group 成一組
 # 500- 999 group 成一組
+
+
 # 出現1000以上 保留巨原本及level name
 ~/Desktop/sdm/Save Point/point3-7.csv
 dataE<-read.table("~/Desktop/sdm/Save Point/point4-5.csv",sep="\t")
@@ -38,7 +40,7 @@ for(j in 1:dim(dataE)[2]){
 
 data_E<-cat.combine(dataE,"gp1","gp2","gp3")
 data_F<-cat.combine(dataF,"gp1","gp2","gp3")
-data_G<-cat.combine(dataF,"gp1","gp2","gp3")
+data_G<-cat.combine(dataG,"gp1","gp2","gp3")
 data_H<-cat.combine(dataH,"gp1","gp2","gp3")
 
 
