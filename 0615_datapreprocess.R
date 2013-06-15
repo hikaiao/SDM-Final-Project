@@ -2,7 +2,7 @@
 # F: NA<10%
 # G: NA 10~95%
 # H: NA >95%
-# Goal
+# Goal Goal
 # 某一level 出現 1-250次 group 成一組
 # 250-499 group 成一組
 # 500- 999 group 成一組
