@@ -1,0 +1,51 @@
+Data for the Statistical Data Mining course project
+
+Part I: Pick your own data.
+ Data sets with at least one of the following characters:
+ (a) Large data. More than 200 MB. 
+ (b) High dimensional. More than 1000 dimensions.
+ (c) Complex data structure. For example, they are from difference sources, 
+     measured by different equipments and different time, with spatial structure, 
+     temporal structure (time series), functional data, and so on.
+
+For example:
+1. Stock market profit prediction (or related problem)
+
+2. Data from Knowledge Discovery in Data web pages.
+   http://www.sigkdd.org/kddcup/index.php
+
+3. Data from some data mining competition.
+   For example http://data.un.org/Explorer.aspx?d=UNESCO
+
+4. .....
+
+
+Part II: Select one from the following.
+
+1. Gene expression and DNA methylation data.(with a paper) (~200 MB)
+   Identify important DNA methylation positions related to diseases.  
+   /data2/SDM/Data/Methylation
+
+2. SNP (GAW16) data. (with papers) (4.5 GB) 
+   (with Master thesis and example R codes)
+   Identify important disease related SNP and genes.
+   /data2/SDM/Data/SNP 
+
+3. fMRI data (around 10 GB). 
+   (with Master thesis and example R codes)
+   Search meaningful active regions and test for differences for factors.
+   /data2/SDM/Data/fMRI
+
+4. DNA sequencing short reads data (phix174 and Cyano, around 6 to 20GB)
+   (with slides and papers, and example R codes) 
+   Identify bad reads and assemble the genome.
+   /data2/SDM/Data/seq
+   http://manuals.bioinformatics.ucr.edu/home/ht-seq
+
+5. Flynn lipid liver: molecular signatures finding for 
+   certain disease. (with slides)(30GB)
+   Pattern (image) recognition and classification 
+  /data2/SDM/Data/Liver
+
+
+ 

@@ -1,0 +1,54 @@
+# read data y
+path="C:/Users/Jon/Documents/Task/Task_Data Mining/datasets/"
+appetency<-read.table(paste(path,"appetency.labels",sep=""),header=FALSE,sep="\t")
+churn<-read.table(paste(path,"churn.labels",sep=""),header=FALSE,sep="\t")
+upselling<-read.table(paste(path,"upselling.labels",sep=""),header=FALSE,sep="\t")
+
+dim(upselling)
+
+# read complete data X (after process)
+path=""
+dataX<-read.table(paste(path,"dataX",sep=""),header=TRUE,sep="\t")
+#Define train and test data
+train=sample(dim(dataX)[1],dim(dataX)[1]/2,replace=FALSE)
+datatrain=dataX[train,]
+datatest=dataX[-train,]
+
+# Check the proportion of each dependent variables
+# How much weight needed? Adjust to 1:1
+table(appetency)
+table(churn)
+table(upselling)
+#Define Loss function
+L.appetency=matrix(,byrow=TRUE)
+L.churn=matrix(,byrow=TRUE)
+L.upselling=matrix(,byrow=TRUE)
+
+# Use regression tree to train X - model 1
+m.appetency=tree(factor(appetency)~., data=datatrain, split="deviance",weights=L.appetency,control=tree.control())
+m.churn=tree(factor(churn)~., data=datatrain, split="deviance",weights=L.churn,control=tree.control())
+m.upselling=tree(factor(upselling)~., data=datatrain, split="deviance",weights=L.upselling,control=tree.control())
+
+
+#Model Checking
+# Use TestX to test model 1
+p.appetency=predict(m.appetency, newdata=datatest)
+p.churn=predict(m.churn, newdata=datatest)
+p.upselling=predict(m.upselling, newdata=datatest)
+
+# Calculate train error and test error
+err.m.appetency=mean(m.appetency-appetency)^2
+err.m.churn=mean(m.churn-churn)^2
+err.m.upselling=mean(m.upselling-upselling)^2
+
+err.p.appetency=mean(p.appetency-appetency)^2
+err.p.churn=mean(p.churn-churn)^2
+err.p.upselling=mean(p.uppselling-upselling)^2
+
+z=matrix(NA,5,2)
+colnames(z)=c("Training","Test")
+rownames(z)=c("Appetency","Churn","Upselling")
+z[,1]=c(err.m.appetency,err.m.churn,err.m.upselling)
+z[,2]=c(err.p.appetency,err.p.churn,err.p.upselling)
+
+z
